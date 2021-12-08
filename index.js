@@ -36,15 +36,17 @@ async function getWeather(query) {
       // location not found, throw error/reject promise
       if (data.cod === "404") throw new Error('location not found')
       // create weather icon URL
-      // template literal
+     
       var iconUrl = 'https://openweathermap.org/img/wn/' +
         data.weather[0].icon +
         '@2x.png'
-        // destructuring
       var description = data.weather[0].description
       var actualTemp = data.main.temp
       var feelsLikeTemp = data.main.feels_like
-      var place = data.name + ", " + data.sys.country
+      // var place = data.name + ", " + data.sys.country
+      // destructuring and template literal
+      const {data: {location}} = place;
+      console.log(`The name of the location is ${location}`)
       // create JS date object from Unix timestamp
       var updatedAt = new Date(data.dt * 1000)
       // this object is used by displayWeatherInfo to update the HTML
