@@ -45,8 +45,8 @@ async function getWeather(query) {
       var feelsLikeTemp = data.main.feels_like
       // var place = data.name + ", " + data.sys.country
       // destructuring and template literal
-      const {data: {location}} = place;
-      console.log(`The name of the location is ${location}`)
+      const {weather} = await res.json()
+      console.log(`The ${weather} is "  "`)
       // create JS date object from Unix timestamp
       var updatedAt = new Date(data.dt * 1000)
       // this object is used by displayWeatherInfo to update the HTML
