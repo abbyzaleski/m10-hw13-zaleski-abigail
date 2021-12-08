@@ -22,26 +22,25 @@ formEl.onsubmit = (e) => {
 }
 
 // calls the OpenWeather API and returns an object of weather info
-function getWeather(query) {
+async function getWeather(query) {
   // default search to USA
   if (!query.includes(",")) query += ',us'
   // return the fetch call which returns a promise
   // allows us to call .then on this function
-  return fetch(
+  const res = await fetch(
     'https://api.openweathermap.org/data/2.5/weather?q=' +
     query +
     '&units=imperial&appid=6efff70fe1477748e31c17d1c504635f'
   )
-    .then(function(res) {
-      return res.json()
-    })
-    .then(function(data) {
+  const data = await res.json()
       // location not found, throw error/reject promise
       if (data.cod === "404") throw new Error('location not found')
       // create weather icon URL
+      // template literal
       var iconUrl = 'https://openweathermap.org/img/wn/' +
         data.weather[0].icon +
         '@2x.png'
+        // descructuring
       var description = data.weather[0].description
       var actualTemp = data.main.temp
       var feelsLikeTemp = data.main.feels_like
@@ -58,7 +57,6 @@ function getWeather(query) {
         place: place,
         updatedAt: updatedAt
       }
-    })
 }
 
 // show error message when location isn't found
