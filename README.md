@@ -1,1 +1,5 @@
 # m10-hw13-zaleski-abigail
+
+I had a bit more difficulty with this assignment than with assignment 12. The main areas that I struggled with were the Destructuring and the Template Literal code. I tried to implement some of the suggestions that you gave to me via our email correspondence, but I was never quite able to get it to work, ultimately causing it to break the code. I commented out one of the attempts, and left the other one up so that you could try to figure out where I was going wrong! 
+
+Overall, I felt that the ES6 homework was easier than some of the other assignments that we have worked on throughout the semester, but I feel like I still need some practice with the concepts of destructuring and template literally, especially when working with urls and how to properly structure it in the code.
